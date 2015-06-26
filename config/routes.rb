@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
+  get 'sessions/create'
+
+  get 'pages/index'
+  get 'pages/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'pages#index'
 
+  # Redirect URL to the create action in sessions controller
+  # Uses :provider to work with any OAuth
+  get '/auth/:provider/callback', to: 'sessions#create'
+
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  get '/auth/failure', to: redirect('/')
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
