@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   def self.create_from_omniauth(auth_hash)
     create! do |user|
       user.provider = auth_hash["provider"]
-      user.id = auth_hash["uid"]
+      user.uid = auth_hash["uid"]
       user.name = auth_hash["info"]["nickname"]
     end
   end
