@@ -11,8 +11,10 @@
 <% if current_user %>
   Signed in as <%= current_user.name %>
   <%= link_to "Sign out", signout_path %>
+  <h1>Timeline</h1>
 <% else %>
   <%= link_to "Sign in with Twitter", '/auth/twitter' %>
+  <h1>Please login to see Timeline</h1>
 <% end %>
 
 <%= yield %>
