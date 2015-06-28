@@ -1,2 +1,9 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<h1>Timeline</h1>
+
+<% @timeline.each do |tweet| %>
+  <ul>
+    <li><strong><%= link_to(tweet.user.name) tweet.url %>:</strong> <%= tweet.text %></li>
+  </ul>
+<% end %>
+
+<%= @timeline[0].url %>
