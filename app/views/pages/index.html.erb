@@ -2,8 +2,6 @@
 
 <% @timeline.each do |tweet| %>
   <ul>
-    <li><strong><%= link_to(tweet.user.name) tweet.url %>:</strong> <%= tweet.text %></li>
+    <li><strong><a href="<%= tweet.url %>"><%= tweet.user.name %></a>:</strong> <%= tweet.text %></li>
   </ul>
 <% end %>
-
-<%= @timeline[0].url %>
