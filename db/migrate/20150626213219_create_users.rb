@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :provider
       t.string :uid
       t.string :name
+      t.string :token
+      t.string :token_secret
 
       t.timestamps null: false
     end
