@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'pages/show'
 
+  get 'tweets/create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -13,7 +15,6 @@ Rails.application.routes.draw do
   # Redirect URL to the create action in sessions controller
   # Uses :provider to work with any OAuth
   get '/auth/:provider/callback', to: 'sessions#create'
-
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   get '/auth/failure', to: redirect('/')
