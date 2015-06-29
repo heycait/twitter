@@ -3,7 +3,15 @@ class User < ActiveRecord::Base
 
   # Extract user info from Twitter, if user doesn't already exist, create it
   def self.from_omniauth(auth_hash)
-    where(uid: auth_hash["uid"]).first || create_from_omniauth(auth_hash)
+    user = User.where(uid: auth_hash["uid"]).first
+    if user
+      unless auth_hash["credentials"]["token"] == user.token
+        user.update_attributes(token: auth_hash["credentials"]["token"], token_secret: auth_hash["credentials"]["secret"])
+      end
+      user
+    else
+      create_from_omniauth(auth_hash)
+    end
   end
 
   def self.create_from_omniauth(auth_hash)
