@@ -6,7 +6,7 @@ class TweetsController < ApplicationController
       config.access_token        = current_user.token
       config.access_token_secret = current_user.token_secret
     end
-    @tweet = client.update("")
+    @tweet = client.update(params[:tweet])
     redirect_to root_path
   end
 end
