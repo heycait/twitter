@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Sidekiq::Worker
 
   # Extract user info from Twitter, if user doesn't already exist, create it
   def self.from_omniauth(auth_hash)
