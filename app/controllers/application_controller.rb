@@ -8,5 +8,14 @@ private
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  helper_method :current_user
+  def client
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = "WfLCBqb41OjVEGy42s5V54ivt"
+      config.consumer_secret     = "3dcJA2ZV5Q245C8eMwHji6Sx5aw2TkEKYS4DovCsgfwMm4CZLy"
+      config.access_token        = current_user.token
+      config.access_token_secret = current_user.token_secret
+    end
+  end
+
+  helper_method :current_user, :client
 end
