@@ -1,8 +1,3 @@
-<form action="/tweets/create" id="tweet-form">
-  <input type="text" name="tweet" placeholder="Compose New Tweet"/>
-  <input type="submit" value="Tweet" />
-</form>
-
 <% @timeline.each do |tweet| %>
   <ul>
     <li><strong><a href="<%= tweet.url %>"><%= tweet.user.name %></a>:</strong> <%= tweet.text %></li>
