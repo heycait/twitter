@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
-
-  get 'pages/index'
-  get 'pages/show'
-
-  get 'tweets/create'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'pages#index'
+
+  get 'sessions/create'
+
+  get 'pages/index'
+
+  post 'tweets/create'
 
   # Redirect URL to the create action in sessions controller
   # Uses :provider to work with any OAuth
