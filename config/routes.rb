@@ -4,14 +4,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'pages#index'
+
   get 'pages/index'
 
   post 'tweets/create'
 
+  get 'signin', to: 'sessions#new'
+
   # Redirect URL to the create action in sessions controller
   # Uses :provider to work with any OAuth
   get '/auth/:provider/callback', to: 'sessions#create'
-  get 'sessions/create'
 
   # Go to destroy action when hitting signout route and show URL as signout
   get 'signout', to: 'sessions#destroy', as: 'signout'
