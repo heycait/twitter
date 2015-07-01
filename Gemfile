@@ -45,3 +45,6 @@ end
 
 gem 'omniauth-twitter'
 gem 'twitter'
+
+# Hide API keys
+gem 'dotenv'

@@ -1,5 +1,28 @@
-<% @timeline.each do |tweet| %>
-  <ul>
-    <li><strong><a href="<%= tweet.url %>"><%= tweet.user.name %></a>:</strong> <%= tweet.text %></li>
-  </ul>
-<% end %>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="blue">
+     <div class="container">
+       <div id="navbar">
+         <ul class="nav navbar-nav navbar-right">
+           <li><%= link_to "Signout", signout_path %></li>
+         </ul>
+       </div><!--/.nav-collapse -->
+     </div>
+   </nav>
+
+  <div class="container" id="timeline">
+    <div class="text-center">
+      <h1><%= current_user.name %>'s Timeline</h1>
+
+      <form action="/tweets/create" id="tweet-form">
+        <input type="text" name="tweet" placeholder="Compose New Tweet"/>
+        <input type="submit" value="Tweet" />
+      </form>
+    </div>
+
+    <div id="feed">
+      <% @timeline.each do |tweet| %>
+        <ul>
+          <li><strong><a href="<%= tweet.url %>"><%= tweet.user.name %></a>:</strong> <%= tweet.text %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div><!-- /.container -->
