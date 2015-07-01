@@ -1,0 +1,38 @@
+#blue {
+  color: black;
+  border: none;
+  background-image: none;
+  background-color: #55acee;
+}
+
+#timeline {
+  margin: 3%;
+}
+
+#feed {
+  border: 1px #D4D4D4 solid;
+  border-radius: 15px;
+  margin-top: 1%;
+  padding: 1%;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#feed ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+#feed ul:hover {
+  background-color: #F5F5F5;
+}
+
+#feed li a {
+  text-decoration: none;
+}
+
+#feed li a:hover {
+  font-weight: bold;
+}
+
